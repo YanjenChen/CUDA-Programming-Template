@@ -9,6 +9,11 @@
 		"dockerfile": "../Dockerfile"
 	},
 
+	// Enable GPU access
+	"runArgs": [
+		"--gpus", "all", "--ipc=host", "--ulimit", "memlock=-1", "--ulimit", "stack=67108864"
+	],
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
