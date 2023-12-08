@@ -32,7 +32,9 @@ RUN pip install seaborn \
     cairocffi \
     setuptools
 
-# Set non-root user (for VS Code)
+# ***********************************
+# * Set non-root user (for VS Code) *
+# ***********************************
 ARG USERNAME=dev
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
