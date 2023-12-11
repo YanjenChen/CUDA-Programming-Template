@@ -19,18 +19,9 @@ RUN wget -O boost_1_66_0.tar.gz https://boostorg.jfrog.io/artifactory/main/relea
     ./bootstrap.sh  &&\
     ./b2 -q install -j 8 --without-python
 
-# install cmake
-ADD https://cmake.org/files/v3.21/cmake-3.21.0-linux-x86_64.sh /cmake-3.21.0-linux-x86_64.sh
-RUN mkdir /opt/cmake \
-    && sh /cmake-3.21.0-linux-x86_64.sh --prefix=/opt/cmake --skip-license \
-    && ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake \
-    && cmake --version
-
 # install commonly used python dependencies
 RUN pip install seaborn \
-    matplotlib \
-    cairocffi \
-    setuptools
+    matplotlib
 
 # ***********************************
 # * Set non-root user (for VS Code) *
