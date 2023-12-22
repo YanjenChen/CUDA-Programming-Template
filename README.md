@@ -29,19 +29,29 @@ If your project is developing on the **eda38/eda39** server, skip the prerequisi
 
 ### Prerequisites
 
-Please install [CUDA](https://developer.nvidia.com/CUDA-TOOLKIT-ARCHIVE), [CuDNN](https://developer.nvidia.com/rdp/cudnn-archive), and [Docker](https://www.docker.com/) on your machine.
+Please install [CUDA](https://developer.nvidia.com/CUDA-TOOLKIT-ARCHIVE), [CuDNN](https://developer.nvidia.com/rdp/cudnn-archive), [Docker](https://www.docker.com/), and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) on your machine.
 
 
 ### Setup
 
 1. Clone this repository.
 ```shell
-git clone --recursive git@github.com:<repo>.git
+git clone --recursive https://github.com/YanjenChen/CUDA-Programming-Template.git
 ```
 2. Install the following VS Code extensions.
   * [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 3. Start VS Code, run the **Dev Containers: Reopen in Container** command from the Command Palette (`F1`) or quick actions Status bar item.
-4. Begin your development.
+4. Build the example project
+```shell
+$ mkdir build && cd build
+$ cmake ..
+$ make -j8 && make install
+```
+5. Test the example project
+```shell
+$ python main.py
+```
+6. You are all set! Begin your development.
 
 
 
