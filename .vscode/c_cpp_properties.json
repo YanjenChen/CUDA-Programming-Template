@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/workspaces/cuda-practice/**",
+                "/opt/conda/include/python3.8",
+                "/opt/conda/lib/python3.8/site-packages/torch/include",
+                "/opt/conda/lib/python3.8/site-packages/torch/include/torch/csrc/api/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc"
+        }
+    ],
+    "version": 4
+}

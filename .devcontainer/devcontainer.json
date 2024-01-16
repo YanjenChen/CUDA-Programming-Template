@@ -12,10 +12,10 @@
 	// Enable GPU access
 	"runArgs": [
 		// For docker, uncomment the following:
-		// "--gpus", "all", "--ipc=host", "--ulimit", "memlock=-1", "--ulimit", "stack=67108864"
+		"--gpus", "all", "--ipc=host", "--ulimit", "memlock=-1", "--ulimit", "stack=67108864"
 		
 		// For rootless docker, uncomment the following:
-		"--gpus", "all"
+		// "--gpus", "all"
 	],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -63,9 +63,9 @@
 				"yzhang.markdown-all-in-one"
 			]
 		}
-	}
+	},
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// Comment the following if you are using rootless docker.
-	// "remoteUser": "dev"
+	"remoteUser": "dev"
 }

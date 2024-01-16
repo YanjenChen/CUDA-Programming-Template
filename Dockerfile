@@ -1,9 +1,9 @@
-FROM nvcr.io/nvidia/pytorch:22.04-py3
+FROM nvcr.io/nvidia/pytorch:22.08-py3
 LABEL maintainer="yjchen@eda.ee.ntu.edu.tw"
 
 # update torch
 RUN pip install --upgrade pip 
-RUN pip install torch==1.12.0+cu116 torchvision==0.13.0+cu116 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu116
+RUN pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
 
 # install dependencies
 ARG DEBIAN_FRONTEND=noninteractive
@@ -11,17 +11,12 @@ RUN apt-get update \
     && apt-get install -y \
     wget \
     flex \
-    libcairo2-dev 
-
-RUN wget -O boost_1_66_0.tar.gz https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz && \
-    tar xvf boost_1_66_0.tar.gz && \
-    cd boost_1_66_0 && \
-    ./bootstrap.sh  &&\
-    ./b2 -q install -j 8 --without-python
+    htop \
+    libcairo2-dev \
+    libboost-all-dev
 
 # install commonly used python dependencies
-RUN pip install seaborn \
-    matplotlib
+RUN pip install seaborn
 
 # ***********************************
 # * Set non-root user (for VS Code) *
@@ -41,4 +36,4 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # [Optional] Set the default user. Omit if you want to keep the default as root. (Comment the following if you are using rootless docker)
-# USER $USERNAME
+USER $USERNAME
